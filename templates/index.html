@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Toxic Comment Classification</title>
+      
+      </head>
+      <body>
+      <form action="{{ url_for('getprediction')}}"method="post">
+        <label for="comment"><h1>Enter Comment:</h1></label>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+      <br>
+      <br>
+      {{ output }}
+      </body>
+
+</html>
