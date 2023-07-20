@@ -20,15 +20,7 @@ new_vectorizer.set_weights(from_disk['weights'])
 @app.route('/')
 def home():
     return render_template('index.html')
-
-@app.route('/Pass/<int:score>')
-def Pass(score):
-    return " the result is pass and marks are " +str(score)
-
-@app.route('/fail/<int:score>')
-def fail(score):
-    return "the result is fail and marks are " +str(score)
-
+  
 @app.route('/getprediction',methods=['GET','POST'])
 def getprediction():
     input =request.form.get('comment')    
@@ -49,14 +41,6 @@ def getprediction():
 
         return render_template('index.html',output ="the comment toxicity level is {0} ({1}) as well as {2} ({3}) ".format(classe[label1],pr1,classe[label2],pr2))
 
-@app.route('/Result/<int:mks>')
-def Results(mks):
-    res=""
-    if mks>50:
-        res="Pass"
-    else:
-        res="fail"
-    return redirect(url_for(res,score=mks))
 
 if __name__ == '__main__':
     app.run()	
